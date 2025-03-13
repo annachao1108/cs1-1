@@ -1,0 +1,31 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+bool condition(int side1,int side2,int side3){
+    return (side1>=side2&&side2>=side3);
+};
+
+int main()
+{
+    int side1, side2, side3;
+    cin >> side1 >> side2 >> side3;
+    do{
+        if(side2>side1){
+            swap(side1, side2);
+        }
+        if(side3>side2){
+            swap(side2, side3);
+        }
+    }while(!condition(side1,side2,side3));
+    cout<<side3<<" "<<side2<<" "<<side1;
+    if(!(side2+side3>side1)){
+        cout<<"No";
+    }
+    else if(side1*side1==side2*side2+side3*side3){
+        cout<<"Right";
+    }
+    else if(side1*side1>side2*side2+side3*side3){
+        cout<<"Obtuse";
+    }
+    else{cout<<"Acute";}
+}
