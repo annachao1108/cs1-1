@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool checking(string a);
+
+int main(){
+    
+    string a;
+    while(getline(cin,a)){
+        if(checking(a)){
+            cout<<"palindrome\n";
+        }
+        else{
+            cout<<"non-palindrome\n";
+        }
+    }
+}
+
+bool checking(string a){
+    if(a.size()==1){
+        return true;
+    }
+    for(int i=0;i<a.size()/2;i++){
+        if(a[i]!=a[a.size()-i-1]){
+            return false;
+        }
+    }
+    return true;
+}
